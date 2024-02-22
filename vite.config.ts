@@ -5,6 +5,9 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 // @ts-ignore
 import postcsspxtoviewport from 'postcss-px-to-viewport'
 
+import Components from 'unplugin-vue-components/vite'
+import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
+
 // https://vitejs.dev/config/
 export default defineConfig({
   esbuild: {
@@ -47,6 +50,13 @@ export default defineConfig({
     vue(),
     vueJsx({
       /* options are passed on to @vue/babel-plugin-jsx */
+    }),
+    Components({
+      resolvers: [
+        AntDesignVueResolver({
+          importStyle: false // css in js
+        })
+      ]
     })
   ]
 })
