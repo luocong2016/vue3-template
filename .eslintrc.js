@@ -17,7 +17,7 @@ module.exports = {
     }
   },
 
-  plugins: ['@typescript-eslint'],
+  plugins: ['vue', '@typescript-eslint'],
 
   env: {
     es6: true,
