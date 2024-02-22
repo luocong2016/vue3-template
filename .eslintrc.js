@@ -13,7 +13,7 @@ module.exports = {
     extraFileExtensions: ['.vue']
   },
 
-  plugins: ['@typescript-eslint'],
+  plugins: ['vue', '@typescript-eslint'],
 
   env: {
     es6: true,
