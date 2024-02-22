@@ -10,7 +10,11 @@ module.exports = {
     parser: '@typescript-eslint/parser',
     ecmaVersion: 2019,
     sourceType: 'module',
-    extraFileExtensions: ['.vue']
+    extraFileExtensions: ['.vue'],
+    ecmaFeatures: {
+      jsx: true,
+      tsx: true
+    }
   },
 
   plugins: ['@typescript-eslint'],
