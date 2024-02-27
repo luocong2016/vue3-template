@@ -9,22 +9,20 @@ import { Card, Flex, Radio, Space, Button, Select, Input } from 'ant-design-vue'
 
 import Searchable from '@/components/Searchable.vue'
 
-export const addConditionItem = () => ({
+export const addConditionItem = (options?: SearchableBasicNode) => ({
   key: uuidv4(),
-  field: '',
-  symbol: '',
-  type: '',
-  value: ''
+  field: null,
+  symbol: null,
+  type: null,
+  value: null,
+  ...options
 })
 
-export const addConditionGroupItem = () => ({
-  key: uuidv4(),
+export const addConditionGroupItem = (options?: SearchableNode) => ({
   logic: 'and',
-  field: '',
-  type: '',
-  symbol: '',
-  value: '',
-  condition: [addConditionItem()]
+  ...addConditionItem(),
+  condition: [addConditionItem()],
+  ...options
 })
 
 export const logicList = [
@@ -42,14 +40,14 @@ export const opList = [
 export const typeList = [{ label: 'String', value: 'String' }]
 
 interface SearchableBasicNode {
-  field: string
-  symbol: string
-  type: string
+  field: string | number | null
+  symbol: string | number | null
+  type: string | number | null
   value: any
 }
 
 interface SearchableNode extends SearchableBasicNode {
-  logic?: string
+  logic?: string | number
   condition?: SearchableNode[]
   [key: string]: any
 }
