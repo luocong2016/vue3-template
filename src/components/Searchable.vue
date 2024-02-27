@@ -1,10 +1,9 @@
 <script lang="tsx">
-// @ts-ignore
-import { v4 as uuidv4 } from 'uuid'
-
 import type { PropType } from 'vue'
 
 import { defineComponent } from 'vue'
+// @ts-ignore
+import { v4 as uuidv4 } from 'uuid'
 import { Card, Flex, Radio, Space, Button, Select, Input } from 'ant-design-vue'
 
 import Searchable from '@/components/Searchable.vue'
@@ -103,7 +102,9 @@ export default defineComponent({
           <Flex justify="space-between" align="center">
             <Radio.Group buttonStyle="solid" v-model:value={props.object.logic}>
               {props.logicList.map(o => (
-                <Radio.Button value={o.value}>{o.label}</Radio.Button>
+                <Radio.Button value={o.value} key={o.value}>
+                  {o.label}
+                </Radio.Button>
               ))}
             </Radio.Group>
 
