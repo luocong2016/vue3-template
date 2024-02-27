@@ -7,16 +7,9 @@
 
 <script setup lang="ts">
 import { reactive } from 'vue'
-import Searchable from './Searchable.vue'
+import Searchable, { addConditionGroupItem } from './Searchable.vue'
 
-const data = reactive({
-  logic: 'and',
-  field: '',
-  type: '',
-  symbol: '',
-  value: '',
-  condition: [{ field: '', symbol: '', type: '', value: '' }]
-})
+const data = reactive(addConditionGroupItem())
 </script>
 
 <style scoped>

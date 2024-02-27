@@ -9,6 +9,24 @@ import { Card, Flex, Radio, Space, Button, Select, Input } from 'ant-design-vue'
 
 import Searchable from '@/components/Searchable.vue'
 
+export const addConditionItem = () => ({
+  key: uuidv4(),
+  field: '',
+  symbol: '',
+  type: '',
+  value: ''
+})
+
+export const addConditionGroupItem = () => ({
+  key: uuidv4(),
+  logic: 'and',
+  field: '',
+  type: '',
+  symbol: '',
+  value: '',
+  condition: [addConditionItem()]
+})
+
 export const logicList = [
   { label: 'and', value: 'and' },
   { label: 'or', value: 'or' }
@@ -55,7 +73,7 @@ export default defineComponent({
       type: Object as PropType<SearchableNode>,
       default: () => ({
         logic: 'and',
-        condition: [{ field: '', symbol: '', type: '', value: '' }]
+        condition: [{ key: uuidv4(), field: '', symbol: '', type: '', value: '' }]
       })
     },
     opList: {
@@ -74,19 +92,11 @@ export default defineComponent({
 
   setup(props) {
     const addItem = (object: SearchableNode) => {
-      object.condition?.push({ key: uuidv4(), field: '', symbol: '', type: '', value: '' })
+      object.condition?.push(addConditionItem())
     }
 
     const addGroup = (object: SearchableNode) => {
-      object.condition?.push({
-        key: uuidv4(),
-        logic: 'and',
-        field: '',
-        type: '',
-        symbol: '',
-        value: '',
-        condition: [{ key: uuidv4(), field: '', symbol: '', type: '', value: '' }]
-      })
+      object.condition?.push(addConditionGroupItem())
     }
 
     return () => (
