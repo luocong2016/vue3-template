@@ -49,7 +49,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueJsx({
-      /* options are passed on to @vue/babel-plugin-jsx */
+      babelPlugins: [['@babel/plugin-proposal-decorators', { legacy: true }]]
     }),
     Components({
       resolvers: [

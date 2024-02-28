@@ -12,6 +12,7 @@ module.exports = {
     sourceType: 'module',
     extraFileExtensions: ['.vue'],
     ecmaFeatures: {
+      legacyDecorators: true,
       jsx: true,
       tsx: true
     }

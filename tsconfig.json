@@ -23,6 +23,7 @@
     "types": ["node", "vue/jsx"],
     "composite": true,
     "allowSyntheticDefaultImports": true,
+    "experimentalDecorators": true,
     "paths": {
       "@/*": ["./src/*"]
     }
