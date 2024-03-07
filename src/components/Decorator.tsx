@@ -36,8 +36,6 @@ class MyTestableClass {}
 const obj = new MyTestableClass()
 console.log(obj.isTestable)
 
-const xx = 'ssss'
-
 // 类装饰器
 function logged<T extends new (...args: any[]) => any>(target: T) {
   return class extends target {
