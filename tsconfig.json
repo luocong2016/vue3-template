@@ -24,10 +24,11 @@
     "composite": true,
     "allowSyntheticDefaultImports": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "include": ["vite.config.ts", "src/**/*", "src/*.d.ts"],
-  "exclude": ["**/node_modules", "**/.*/"]
+  "exclude": ["node_modules", "**/.*/", "*.d.ts"]
 }
